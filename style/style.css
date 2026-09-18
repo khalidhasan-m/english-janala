@@ -7,7 +7,20 @@
 .font-bangla {
   font-family: "Hind Siliguri", sans-serif;
 }
-.active {
+
+/* active lesson button (a stronger selector so daisyUI's btn-outline can not override it) */
+.btn.lesson-btn.active {
   background-color: #422ad5;
+  border-color: #422ad5;
   color: white;
 }
+
+/* saved (heart) button states */
+.btn.save-btn.is-saved {
+  color: #e11d48;
+}
+
+.btn.save-btn.is-saved:hover {
+  background-color: #ffe4e6;
+}
+

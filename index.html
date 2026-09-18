@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -66,23 +66,23 @@
               class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
               <li>
-                <a href="" class=""
+                <a href="#faq-section" class=""
                   ><i class="fa-solid fa-circle-question"></i>FAQ</a
                 >
               </li>
               <li>
-                <a href="" class=""
+                <a href="#learn-section" class=""
                   ><i class="fa-solid fa-book-open"></i>Learn</a
                 >
               </li>
               <li>
-                <a href="" class=""
-                  ><i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</a
+                <button type="button" class="logout-btn"
+                  ><i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</button
                 >
               </li>
             </ul>
           </div>
-          <a href="" class="flex items-center gap-1">
+          <a href="#top" class="flex items-center gap-1">
             <span class="text-lg font-bold">English</span>
             <img src="./assets/logo.png" alt="" />
             <span class="font-bangla text-lg font-semibold">জানালা</span>
@@ -91,18 +91,18 @@
         <div class="navbar-end hidden lg:flex">
           <ul class="menu menu-horizontal px-1 space-x-4">
             <li>
-              <a href="" class="btn btn-outline btn-primary"
+              <a href="#faq-section" class="btn btn-outline btn-primary"
                 ><i class="fa-solid fa-circle-question"></i>FAQ</a
               >
             </li>
             <li>
-              <a href="" class="btn btn-outline btn-primary"
+              <a href="#learn-section" class="btn btn-outline btn-primary"
                 ><i class="fa-solid fa-book-open"></i>Learn</a
               >
             </li>
             <li>
-              <a href="" class="btn btn-outline btn-primary"
-                ><i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</a
+              <button type="button" class="btn btn-outline btn-primary logout-btn"
+                ><i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</button
               >
             </li>
           </ul>
@@ -113,6 +113,7 @@
     <!-- hero section -->
 
     <section
+      id="hero-section"
       class="flex flex-col-reverse md:flex-row gap-10 justify-between items-center py-5 w-11/12 mx-auto"
     >
       <div class="content flex-1 space-y-4 text-center md:text-left">
@@ -121,20 +122,33 @@
         </h1>
         <p class="font-bangla">
           আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা
-          আপনার দক্ষতা বাড়াতে চান, আমাদের Interactive Lessons আপনাকে নিয়ে যাবে
+          আপনার দক্ষতা বাড়াতে চান, আমাদের Interactive Lessons আপনাকে নিয়ে যাবে
           অন্য একটি Level এ
         </p>
         <!-- form is here -->
-        <fieldset class="fieldset space-y-3">
-          <input type="text" class="input" placeholder="Enter Your Name" />
+        <form id="signup-form" class="fieldset space-y-3" novalidate>
+          <input
+            id="input-name"
+            type="text"
+            class="input"
+            placeholder="Enter Your Name"
+            autocomplete="name"
+          />
 
           <input
+            id="input-password"
             type="password"
             class="input"
             placeholder="Enter Your Password"
+            autocomplete="current-password"
           />
-        </fieldset>
-        <button class="btn btn-primary">Get Started</button>
+          <p
+            id="hero-error"
+            class="hidden font-bangla text-sm text-red-500"
+            role="alert"
+          ></p>
+          <button type="submit" class="btn btn-primary">Get Started</button>
+        </form>
       </div>
       <div class="image flex-1">
         <img src="./assets/hero-student.png" alt="" />
@@ -143,7 +157,7 @@
 
     <!-- learn section -->
 
-    <section class="py-5 w-11/12 mx-auto items-center">
+    <section id="learn-section" class="py-5 w-11/12 mx-auto items-center">
       <h1 class="text-4xl font-bold mb-8 text-black text-center">
         <span class="text-[#00BCFF]">Let's </span> Learn Vocabularies
       </h1>
@@ -188,6 +202,30 @@
         <h2 class="text-4xl">একটি Lesson Select করুন।</h2>
       </div>
     </section>
+
+    <!-- saved words section -->
+    <section id="saved-section" class="hidden py-5 w-11/12 mx-auto">
+      <div class="flex flex-wrap justify-between items-center gap-3 mb-6">
+        <h2 class="text-3xl font-bold text-black">
+          <span class="text-[#00BCFF]">Saved </span>Vocabulary
+          <span id="saved-count" class="text-lg font-normal text-gray-500"
+            >(0)</span
+          >
+        </h2>
+        <button
+          id="btn-clear-saved"
+          type="button"
+          class="btn btn-outline btn-error btn-sm"
+        >
+          <i class="fa-solid fa-trash-can"></i> Clear All
+        </button>
+      </div>
+      <div
+        id="saved-container"
+        class="bg-gray-100 p-6 w-full mx-auto rounded-xl grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5"
+      ></div>
+    </section>
+
     <!-- Open the modal using ID.showModal() method -->
     <!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
     <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
@@ -205,7 +243,7 @@
       </div>
     </dialog>
     <!-- Faq section -->
-    <section class="p-10 w-11/12 mx-auto my-10 rounded-xl space-y-5">
+    <section id="faq-section" class="p-10 w-11/12 mx-auto my-10 rounded-xl space-y-5">
       <div class="p-10 text-center">
         <h1 class="text-4xl font-bold mb-8 text-black text-center">
           <span class="text-[#00BCFF]">Frequently </span> Asked Questions
@@ -268,15 +306,13 @@
       </div>
     </section>
     <!-- scripts added here -->
-    <script src="./script/index.js"></script>
-
     <!-- footer -->
 
     <footer
       class="footer sm:footer-horizontal bg-[#EDF6FF] text-black p-10"
     >
       <aside>
-        <a href="" class="flex items-center gap-1">
+        <a href="#top" class="flex items-center gap-1">
             <span class="text-lg font-bold">English</span>
             <img src="./assets/logo.png" alt="" />
             <span class="font-bangla text-lg font-semibold">জানালা</span>
@@ -290,12 +326,15 @@
       <nav>
         <h6 class="footer-title">Follow us</h6>
         <div class="flex justify-center items-center gap-5">
-          <a href=""><img src="./assets/fb-thumb.png" alt=""></a>
-          <a href=""><img src="./assets/youtube-thumb.png" alt=""></a>
-          <a href=""><img src="./assets/instagram-thumb.png" alt=""></a>
-          <a href=""><img src="./assets/github-thumb.png" alt=""></a>
+          <a href="#top" aria-label="Facebook"><img src="./assets/fb-thumb.png" alt="Facebook"></a>
+          <a href="#top" aria-label="YouTube"><img src="./assets/youtube-thumb.png" alt="YouTube"></a>
+          <a href="#top" aria-label="Instagram"><img src="./assets/instagram-thumb.png" alt="Instagram"></a>
+          <a href="#top" aria-label="GitHub"><img src="./assets/github-thumb.png" alt="GitHub"></a>
         </div>
       </nav>
     </footer>
+
+    <!-- script added at the end so every element exists when the script runs -->
+    <script src="./script/index.js"></script>
   </body>
 </html>

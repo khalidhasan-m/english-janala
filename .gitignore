@@ -1,0 +1,68 @@
+# ------------------------------------------------------------------
+# ENGLISH JANALA - files that must never be committed
+# ------------------------------------------------------------------
+
+# ---------- macOS system files ----------
+# .DS_Store and ._* (AppleDouble resource forks) are created by Finder,
+# especially on external/ExFAT drives. They are pure metadata, never part of
+# the site, and were being pushed to GitHub before this file existed.
+.DS_Store
+.DS_Store?
+._*
+.AppleDouble
+.LSOverride
+Icon?
+.Spotlight-V100
+.Trashes
+.fseventsd
+Temporary Items
+Network Trash Folder
+
+# ---------- editors / IDEs ----------
+.vscode/
+.idea/
+.history/
+*.swp
+*.swo
+*~
+
+# ---------- dependencies ----------
+node_modules/
+jspm_packages/
+
+# ---------- logs ----------
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ---------- environment / secrets ----------
+.env
+.env.*
+!.env.example
+
+# ---------- build output & coverage ----------
+dist/
+build/
+out/
+coverage/
+
+# ---------- other OS / temp junk ----------
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.bak
+*.tmp
+*.orig
+*.rej
+
+# ---------- optional: local scratch files ----------
+# test.js (a small createElements experiment) and the empty tailwind.config.js
+# are not used by the site, which runs on the Tailwind v4 browser build.
+# They are still tracked on purpose, so uncomment the two lines below AND run
+#   git rm --cached test.js tailwind.config.js
+# if you want the repository to stop carrying them.
+# test.js
+# tailwind.config.js
