@@ -125,12 +125,12 @@
           আপনার দক্ষতা বাড়াতে চান, আমাদের Interactive Lessons আপনাকে নিয়ে যাবে
           অন্য একটি Level এ
         </p>
-        <!-- form is here -->
+        <!-- form is here : inputs and the button share the same width (max-w-xs = 320px) -->
         <form id="signup-form" class="fieldset space-y-3" novalidate>
           <input
             id="input-name"
             type="text"
-            class="input"
+            class="input w-full max-w-xs"
             placeholder="Enter Your Name"
             autocomplete="name"
           />
@@ -138,16 +138,18 @@
           <input
             id="input-password"
             type="password"
-            class="input"
+            class="input w-full max-w-xs"
             placeholder="Enter Your Password"
             autocomplete="current-password"
           />
           <p
             id="hero-error"
-            class="hidden font-bangla text-sm text-red-500"
+            class="hidden w-full max-w-xs font-bangla text-sm text-red-500"
             role="alert"
           ></p>
-          <button type="submit" class="btn btn-primary">Get Started</button>
+          <button type="submit" class="btn btn-primary w-full max-w-xs">
+            Get Started
+          </button>
         </form>
       </div>
       <div class="image flex-1">
